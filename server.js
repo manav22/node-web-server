@@ -19,9 +19,9 @@ app.use((req, res, next) => {
 	next();
 })
 
-app.use((req, res, next) => {
-	res.render('maintenance.hbs');
-});
+// app.use((req, res, next) => {
+// 	//console.log('We'll be right back');
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -47,14 +47,20 @@ hbs.registerHelper('screamIt', (text)=>{
 
 app.get('/about', (req, res)=>{
 	res.render('about.hbs', {
-		pageTitle: 'About Page',
+		pageTitle: 'About Page'
+	});
+});
+
+app.get('/projects', (req, res)=>{
+	res.render('projects.hbs', {
+		pageTitle: 'Projects'
 	});
 });
 
 app.get('/', (req, res)=>{
 	res.render('home.hbs', {
 		pageTitle: 'Home Page',
-		welcomeMessage: 'Welcome to my website',
+		welcomeMessage: 'Welcome to my website'
 	});
 });
 
